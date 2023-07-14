@@ -16,11 +16,13 @@ class BlogController extends Controller
     public function index()
     {
         $blogs = Blog::all();
+        $categories = Blog::latest('id')->paginate(2);
 
         return Inertia::render(
             'Blogs/Index',
             [
-                'blogs' => $blogs
+                'blogs' => $blogs,
+                'categories' => $categories
             ]
         );
     }
@@ -52,7 +54,7 @@ class BlogController extends Controller
         ]);
         Blog::create([
             'title' => $request->title,
-            'slug' => \Str::slug($request->slug),
+            'slug' => $request->slug,
             'content' => $request->content
         ]);
         sleep(1);
@@ -103,7 +105,7 @@ class BlogController extends Controller
         ]);
 
         $blog->title = $request->title;
-        $blog->slug = \Str::slug($request->slug);
+        $blog->slug = $request->slug;
         $blog->content = $request->content;
         $blog->save();
         sleep(1);

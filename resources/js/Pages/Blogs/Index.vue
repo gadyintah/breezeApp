@@ -2,6 +2,7 @@
 import BreezeAuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 import { Head } from '@inertiajs/vue3';
 import BreezeButton from "@/Components/PrimaryButton.vue";
+import Pagination from "@/Components/Pagination.vue";
 import { Link } from '@inertiajs/vue3';
 import { useForm } from '@inertiajs/vue3';
 
@@ -10,7 +11,13 @@ const props = defineProps({
         type: Object,
         default: () => ({}),
     },
+
+    categories: {
+        type: Object,
+        default: () => ({}),
+    },
 });
+
 const form = useForm;
 
 function destroy(id) {
@@ -32,11 +39,11 @@ function destroy(id) {
 
         <div class="py-12">
             <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-                <!-- <div v-if="$page.props.flash.message" class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800" role="alert">
+                <div v-if="$page.props.flash.message" class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800" role="alert">
                     <span class="font-medium">
                         {{ $page.props.flash.message }}
                     </span>
-                </div> -->
+                </div>
                 <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
                     <div class="p-6 bg-white border-b border-gray-200">
                         <div class="mb-2">
@@ -96,6 +103,7 @@ function destroy(id) {
                                 </tbody>
                             </table>
                         </div>
+                        <Pagination :data="categories"/>
                     </div>
                 </div>
             </div>
