@@ -32,7 +32,7 @@ function destroy(id) {
 
     <BreezeAuthenticatedLayout>
         <template #header>
-            <h2 class="text-xl font-semibold leading-tight text-gray-800">
+            <h2 class="text-xl font-semibold leading-tight text-white">
                 Blogs Index
             </h2>
         </template>
@@ -44,8 +44,8 @@ function destroy(id) {
                         {{ $page.props.flash.message }}
                     </span>
                 </div>
-                <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
-                    <div class="p-6 bg-white border-b border-gray-200">
+                <div class="overflow-hidden bg-gray-900 shadow-sm sm:rounded-lg">
+                    <div class="p-6 bg-gray-900 border-b border-gray-600">
                         <div class="mb-2">
                             <Link :href="route('blogs.create')">
                             <BreezeButton>Add Blog</BreezeButton>

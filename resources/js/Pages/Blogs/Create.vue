@@ -29,21 +29,21 @@ const submit = () => {
 
     <BreezeAuthenticatedLayout>
         <template #header>
-            <h2 class="text-xl font-semibold leading-tight text-gray-800">
+            <h2 class="text-xl font-semibold leading-tight text-white">
                 Blog Create
             </h2>
         </template>
 
         <div class="py-12">
             <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-                <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
-                    <div class="p-6 bg-white border-b border-gray-200">
+                <div class="overflow-hidden bg-gray-900 shadow-sm sm:rounded-lg">
+                    <div class="p-6 bg-gray-900 border-2 border-gray-200">
                         <form @submit.prevent="submit">
                             <div class="mb-6">
                                 <label for="Title"
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Title</label>
                                 <input type="text" v-model="form.title" name="title"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                    class="bg-gray-700 border border-gray-300 text-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                     placeholder="" />
                                 <div v-if="form.errors.title" class="text-sm text-red-600">
                                     {{ form.errors.title }}
@@ -53,7 +53,7 @@ const submit = () => {
                                 <label for="Slug"
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Slug</label>
                                 <input type="text" v-model="form.slug" name="title"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                    class="bg-gray-700 border border-gray-300 text-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                     placeholder="" />
                                 <div v-if="form.errors.slug" class="text-sm text-red-600">
                                     {{ form.errors.slug }}
@@ -63,7 +63,7 @@ const submit = () => {
                                 <label for="slug"
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Content</label>
                                 <textarea type="text" v-model="form.content" name="content" id=""
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"></textarea>
+                                    class="bg-gray-700 border border-gray-300 text-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"></textarea>
                                 <div v-if="form.errors.content" class="text-sm text-red-600">
                                     {{ form.errors.content }}
                                 </div>

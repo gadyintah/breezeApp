@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\UsersController;
+use App\Http\Controllers\ShowUserController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -37,8 +37,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::resource('blogs', BlogController::class);
+Route::resource('blogs', BlogController::class)->middleware(['auth', 'verified']);
 
-Route::get('/users/data-table', [UsersController::class, 'getUsersForDataTable'])->name('users.table');
+Route::resource('users', ShowUserController::class)->middleware(['auth', 'verified']);
 
 require __DIR__.'/auth.php';
