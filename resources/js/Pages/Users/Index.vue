@@ -8,11 +8,6 @@ const props = defineProps({
         type: Object,
         default: () => ({}),
     },
-
-    categories: {
-        type: Object,
-        default: () => ({}),
-    },
 });
 
 </script>
@@ -46,7 +41,7 @@ const props = defineProps({
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr v-for="user in users" :key="user.id"
+                                    <tr v-for="user in users.data" :key="user.id"
                                         class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                         <th scope="row"
                                             class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
@@ -64,7 +59,7 @@ const props = defineProps({
                                 </tbody>
                             </table>
                         </div>
-                        <Pagination :data="categories"/>
+                        <Pagination :data="users"/>
                     </div>
                 </div>
             </div>

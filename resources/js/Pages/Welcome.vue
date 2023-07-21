@@ -65,7 +65,13 @@ defineProps({
                     />
                 </svg> -->
 
-                <img src="/images/valogo1.png" style="max-width: 500px;" alt="Logo" />
+                <button @click="awesome = !awesome"><img src="/images/valogo1.png" style="max-width: 500px;" alt="Logo" /></button>
+            </div>
+
+            <div>
+                <div>
+                    
+                </div>
             </div>
 
     

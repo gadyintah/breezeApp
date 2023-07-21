@@ -11,11 +11,6 @@ const props = defineProps({
         type: Object,
         default: () => ({}),
     },
-
-    categories: {
-        type: Object,
-        default: () => ({}),
-    },
 });
 
 const form = useForm;
@@ -72,7 +67,7 @@ function destroy(id) {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr v-for="blog in blogs" :key="blog.id"
+                                    <tr v-for="blog in blogs.data" :key="blog.id"
                                         class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                         <th scope="row"
                                             class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
@@ -103,7 +98,7 @@ function destroy(id) {
                                 </tbody>
                             </table>
                         </div>
-                        <Pagination :data="categories"/>
+                        <Pagination :data="blogs"/>
                     </div>
                 </div>
             </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreBlogRequest;
 use App\Models\Blog;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -15,14 +16,13 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $blogs = Blog::all();
-        $categories = Blog::latest('id')->paginate(2);
+        // $blogs = Blog::all();
+        $blogs = Blog::latest('id')->paginate(10);
 
         return Inertia::render(
             'Blogs/Index',
             [
                 'blogs' => $blogs,
-                'categories' => $categories
             ]
         );
     }
@@ -45,19 +45,10 @@ class BlogController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreBlogRequest $request)
     {
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'slug' => 'required|string|max:255',
-            'content' => 'required',
-        ]);
-        Blog::create([
-            'title' => $request->title,
-            'slug' => $request->slug,
-            'content' => $request->content
-        ]);
-        sleep(1);
+        
+        Blog::create($request->validated());
 
         return redirect()->route('blogs.index')->with('message', 'Blog Created Successfully');
     }

@@ -15,14 +15,12 @@ class ShowUserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        $userPaginate = User::latest('id')->paginate(10);
+        $users = User::latest('id')->paginate(10);
 
         return Inertia::render(
             'Users/Index',
             [
                 'users' => $users,
-                'categories' => $userPaginate
             ]
         );
     }
